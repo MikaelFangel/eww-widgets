@@ -1,0 +1,17 @@
+; This widget divdes the battery status in to five and return a give label/icon for the status
+; The original code for this widget is written by dharmx
+; Source: https://dharmx.is-a.dev/eww-powermenu/
+
+
+; @capacity: The capacity of the monitored battery
+; @status: The battery status
+; @charge: Battery charging indicator
+(defwidget _battery [capacity status one two three four five charge]
+  (box :class "battery-box" :space-evenly false :spacing 8
+    (label :text {status == 'Charging' ? charge :
+      capacity < 20 ? one :
+      capacity < 40 ? two :
+      capacity < 60 ? three :
+      capacity < 80 ? four :
+      five}
+           :tooltip "Battery percentage: ${capacity}")))

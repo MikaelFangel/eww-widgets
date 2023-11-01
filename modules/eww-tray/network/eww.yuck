@@ -22,7 +22,7 @@
        :space-evenly false
        :spacing 8
     (label :text {strength == "" ? offline :
-                  strength < 26 ? slow :
+                  strength < 26 ? bad :
                   strength < 51 ? okay :
                   strength < 76 ? good :
                   excellent}
