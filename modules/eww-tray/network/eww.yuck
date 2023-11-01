@@ -1,0 +1,29 @@
+; This module classifies the network signal strength into five
+; categories and provides the polling variable net that uses 
+; network manager to pool the signal strength every 100s
+; The original code for this widget is written by dharmx
+; Source: https://dharmx.is-a.dev/eww-powermenu/
+
+; Poll the wifi connectivity strength
+(defpoll net :interval "100s"
+  :initial `N/A`
+  `nmcli -t -f SIGNAL,ACTIVE dev wifi \
+  | awk -F':' '{if($2=="yes")print$1}'`)
+
+
+; @strength: Signal strength for the wifi
+; @offline: Offline indicator
+; @bad: Bad connection indicator
+; @okay: Okay connection indicator
+; @good: Good connection indicator
+; @excellent: Excellent connection indicator
+(defwidget _network [strength offline bad okay good excellent]
+  (box :class "network-box"
+       :space-evenly false
+       :spacing 8
+    (label :text {strength == "" ? offline :
+                  strength < 26 ? slow :
+                  strength < 51 ? okay :
+                  strength < 76 ? good :
+                  excellent}
+            :tooltip "Signal strength: ${strength}")))
