@@ -1,0 +1,35 @@
+(defvar show_indicator false)
+
+(defwindow brightness-indicator
+  :monitor 0
+    :geometry (
+      geometry
+      :anchor "center"
+      :x "0"
+      :y "0"
+      :width "0%"
+      :height "0%"
+    )
+
+  :stacking "fg"
+  :exclusive "false"
+  :focusable "false"
+
+  (_brightness :value curbright)
+)
+
+(defpoll curbright :interval "0.1s"
+                   :run-while show_indicator
+  `brightnessctl | grep Current | cut -d" " -f4 | tr -d '()%'`)
+
+(defwidget _brightness [value]
+  (box :visible show_indicator :space-evenly false
+    :class "metric"
+    "  "
+    (scale :min 0
+           :max 100
+           :active ""
+           :value value
+           :onchange "")
+  )
+)
