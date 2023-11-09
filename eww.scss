@@ -1,0 +1,28 @@
+* {
+  all: unset;
+}
+
+@import "./modules/eww-settings/metric-indicator/eww.scss"
+
+.bar {
+  background: rgba(00,00,00, 0.5);
+  color: #b0b4bc;
+  padding: 10px;
+  border-radius: 10px;
+}
+.sidestuff {
+  margin-right: 10px;
+}
+.workspaces {
+  margin-left: 10px;
+}
+.workspaces button:hover {
+  color: #D35D6E;
+}
+.current {
+  color: #D35D6E;
+}
+.empty {
+  color: rgba(255,255,255,0.2)
+}
+

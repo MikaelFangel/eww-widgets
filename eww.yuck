@@ -1,0 +1,90 @@
+(include "./modules/eww-tray/network/eww.yuck")
+(include "./modules/eww-tray/battery/eww.yuck")
+(include "./modules/eww-settings/metric-indicator/eww.yuck")
+
+(defpoll time :interval "10s"
+  "date '+%H : %M'")
+
+(defwidget bar []
+  (centerbox
+    (workspaces)
+    (window_w)
+    (sidestuff)))
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+  (_network :strength net :offline " 󰤭 " :bad " 󰤟 " :okay " 󰤢 " :good " 󰤥 " :excellent "󰤨 ")
+  (_battery :capacity {EWW_BATTERY["BAT0"].capacity} 
+            :status {EWW_BATTERY["BAT0"].status}
+            :charge " 󰂄 " :one "   " :two "   " :three "   " :four "   " :five "   ")
+  time))
+
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
+(defwidget workspaces []
+  (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
+    (box :class "workspaces"
+         :space-evenly true 
+         :halign "start"
+         :spacing 10
+      (label :text "${workspaces}${current_workspace}" :visible false)
+      (for workspace in workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+            (label :text "${workspace.id}")
+            )
+          )
+        )
+      )
+    )
+  )
+
+(deflisten window :initial "..." "sh ~/.config/eww/scripts/get-windows-title")
+(defwidget window_w []
+  (box
+    (label :text "${window}"
+    )
+  )
+)
+
+
+(defwindow bar
+  :monitor 0
+      :geometry
+    (
+        geometry
+        :anchor "top center"
+        :x "0"
+        :y "5px"
+        :width "99.5%"
+        :height "3%"
+    )
+  
+    :stacking "fg"
+    :exclusive "true"
+    :focusable "false"
+   
+  (bar))
+
+
+; On screen indicators
+(defvar show_curbright false)
+
+(defwindow brightness-indicator
+  :monitor 0
+    :geometry (
+      geometry
+      :anchor "center"
+      :x "0"
+      :y "0"
+      :width "0%"
+      :height "0%"
+    )
+
+  :stacking "fg"
+  :exclusive "false"
+  :focusable "false"
+
+  (_metric :value curbright :icon "   " :show_indicator show_curbright)
+)
+
