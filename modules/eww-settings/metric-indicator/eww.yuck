@@ -1,0 +1,15 @@
+(defpoll curbright :interval "0.1s"
+                   :run-while show_curbright
+  `brightnessctl | grep Current | cut -d" " -f4 | tr -d '()%'`)
+
+(defwidget _metric [value icon show_indicator]
+  (box :visible show_indicator :space-evenly false
+    :class "settings-metric"
+    icon
+    (scale :min 0
+           :max 100
+           :active ""
+           :value value
+           :onchange "")
+  )
+)

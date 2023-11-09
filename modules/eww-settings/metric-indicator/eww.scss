@@ -1,14 +1,14 @@
 * {
   all: unset;
 }
-.metric {
+.settings-metric {
   background-color: rgba(00,00,00, 0.5);
   border-radius: 20px;
   font-size: 20px;
   font-weight: bold;
   padding: 10px;
 }
-.metric scale trough {
+.settings-metric scale trough {
   all: unset;
   background-color: #4e4e4e;
   border-radius: 50px;
@@ -16,7 +16,7 @@
   min-width: 300px;
   margin: 10px;
 }
-.metric scale trough highlight {
+.settings-metric scale trough highlight {
   all: unset;
   background: linear-gradient(to right, #33ccff, #00ff99);
   color: #000000;
