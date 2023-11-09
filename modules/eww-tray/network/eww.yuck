@@ -17,13 +17,13 @@
 ; @okay: Okay connection indicator
 ; @good: Good connection indicator
 ; @excellent: Excellent connection indicator
-(defwidget _network [strength offline bad okay good excellent]
+(defwidget _network [strength]
   (box :class "network-box"
        :space-evenly false
        :spacing 8
-    (label :text {strength == "" ? offline :
-                  strength < 26 ? bad :
-                  strength < 51 ? okay :
-                  strength < 76 ? good :
-                  excellent}
+    (label :text {strength == "" ? "󰤭" :
+                  strength < 26 ? "󰤟" :
+                  strength < 51 ? "󰤢" :
+                  strength < 76 ? "󰤥" :
+                  "󰤨"}
             :tooltip "Signal strength: ${strength}")))

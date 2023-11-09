@@ -6,12 +6,20 @@
 ; @capacity: The capacity of the monitored battery
 ; @status: The battery status
 ; @charge: Battery charging indicator
-(defwidget _battery [capacity status one two three four five charge]
+(defwidget _battery [capacity status]
   (box :class "battery-box" :space-evenly false :spacing 8
-    (label :text {status == 'Charging' ? charge :
-      capacity < 20 ? one :
-      capacity < 40 ? two :
-      capacity < 60 ? three :
-      capacity < 80 ? four :
-      five}
+    (label :text {status == 'Charging' ? 
+      ; Charging
+      capacity < 20 ? "󰂆 " :
+      capacity < 40 ? "󰂈 " :
+      capacity < 60 ? "󰂉 " :
+      capacity < 80 ? "󰂊 " : 
+      "󰂅 "
+      :
+      ; Discharging
+      capacity < 20 ? " " :
+      capacity < 40 ? " " :
+      capacity < 60 ? " " :
+      capacity < 80 ? " " :
+      " "}
            :tooltip "Battery percentage: ${capacity}")))

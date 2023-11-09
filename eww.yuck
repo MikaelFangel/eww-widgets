@@ -13,10 +13,9 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-  (_network :strength net :offline "󰤭" :bad "󰤟" :okay "󰤢" :good "󰤥" :excellent "󰤨")
+  (_network :strength net)
   (_battery :capacity {EWW_BATTERY["BAT0"].capacity} 
-            :status {EWW_BATTERY["BAT0"].status}
-            :charge "󰂄" :one " " :two " " :three " " :four " " :five " ")
+            :status {EWW_BATTERY["BAT0"].status})
   time))
 
 (deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
