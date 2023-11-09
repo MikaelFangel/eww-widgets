@@ -1,0 +1,12 @@
+(defwidget _ram []
+  (box :class "ram-box"
+       :space-evenly false
+    (circular-progress :value {EWW_RAM.used_mem_perc}
+                       :class "mem-prog"
+                       :start-at 0
+                       :thickness 2.0
+    (button 
+                :class "mem-icon"
+                "󰍛"))
+  )
+)
