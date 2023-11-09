@@ -10,6 +10,34 @@ A Hyprland themed brightness indicator
 
 #### Dependencies
 * brightnessctl
-* nerdfonts
+
+### How To
+
+Add the following window to you main `eww.yuck` file and map shortcuts that updates the variable whether it is shown or not
+
+```
+(include "./modules/eww-settings/metric-indicator/eww.yuck")
+
+(defvar show_curbright false)
+
+(defwindow brightness-indicator
+  :monitor 0
+    :geometry (
+      geometry
+      :anchor "center"
+      :x "0"
+      :y "0"
+      :width "0%"
+      :height "0%"
+    )
+
+  :stacking "fg"
+  :exclusive "false"
+  :focusable "false"
+
+  (_metric :value curbright :icon "   " :show_indicator show_curbright)
+)
+```
+AND! Don't forget to import the eww.scss in you main eww.scss file.
 
 ## Tray icons
