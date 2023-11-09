@@ -12,6 +12,9 @@
 }
 .sidestuff {
   margin-right: 10px;
+  & > * {
+    margin: 0px 0px 0px 15px;
+  }
 }
 .workspaces {
   margin-left: 10px;
