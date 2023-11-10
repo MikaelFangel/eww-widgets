@@ -10,16 +10,28 @@
   (box :class "battery-box" :space-evenly false :spacing 8
     (label :text {status == 'Charging' ? 
       ; Charging
-      capacity < 20 ? "󰂆 " :
-      capacity < 40 ? "󰂈 " :
-      capacity < 60 ? "󰂉 " :
-      capacity < 80 ? "󰂊 " : 
-      "󰂅 "
+      capacity < 10 ? "󰢟" :
+      capacity < 20 ? "󰢜" :
+      capacity < 30 ? "󰂆" :
+      capacity < 40 ? "󰂇" :
+      capacity < 50 ? "󰂈" :
+      capacity < 60 ? "󰢝" :
+      capacity < 70 ? "󰂉" :
+      capacity < 80 ? "󰢞" : 
+      capacity < 90 ? "󰂊" : 
+      capacity < 100 ? "󰂋" : 
+      "󰂅"
       :
       ; Discharging
-      capacity < 20 ? " " :
-      capacity < 40 ? " " :
-      capacity < 60 ? " " :
-      capacity < 80 ? " " :
-      " "}
+      capacity < 10 ? "󰂎" :
+      capacity < 20 ? "󰁺" :
+      capacity < 30 ? "󰁻" :
+      capacity < 40 ? "󰁼" :
+      capacity < 50 ? "󰁽" :
+      capacity < 60 ? "󰁾" :
+      capacity < 70 ? "󰁿" :
+      capacity < 80 ? "󰂀" :
+      capacity < 90 ? "󰂁" :
+      capacity < 100 ? "󰂂" :
+      "󰁹"}
            :tooltip "Battery percentage: ${capacity}")))
