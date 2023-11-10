@@ -2,6 +2,7 @@
 (include "./modules/eww-tray/battery/eww.yuck")
 (include "./modules/eww-tray/ram/eww.yuck")
 (include "./modules/eww-tray/hdd/eww.yuck")
+(include "./modules/eww-tray/volume/eww.yuck")
 (include "./modules/eww-settings/metric-indicator/eww.yuck")
 
 (defpoll time :interval "10s"
@@ -18,6 +19,7 @@
   (_network :strength net)
   (_hdd)
   (_ram)
+  (_volume :volume volume :muted muted)
   (_battery :capacity {EWW_BATTERY["BAT0"].capacity} 
             :status {EWW_BATTERY["BAT0"].status})
   time))
