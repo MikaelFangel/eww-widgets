@@ -2,6 +2,10 @@
                    :run-while show_curbright
   `brightnessctl | grep Current | cut -d" " -f4 | tr -d '()%'`)
 
+(defpoll curvolume :interval "0.1s"
+                   :run-while show_curvolume
+  `wpctl get-volume @DEFAULT_SINK@ | cut -d" " -f2 | tr -d '.'`)
+
 (defwidget _metric [value icon show_indicator]
   (box :visible show_indicator :space-evenly false
     :class "settings-metric"

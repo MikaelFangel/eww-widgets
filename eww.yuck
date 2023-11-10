@@ -93,3 +93,23 @@
   (_metric :value curbright :icon "   " :show_indicator show_curbright)
 )
 
+; On screen indicators
+(defvar show_curvolume false)
+
+(defwindow volume-indicator
+  :monitor 0
+    :geometry (
+      geometry
+      :anchor "center"
+      :x "0"
+      :y "0"
+      :width "0%"
+      :height "0%"
+    )
+
+  :stacking "fg"
+  :exclusive "false"
+  :focusable "false"
+
+  (_metric :value curvolume :icon "   " :show_indicator show_curvolume)
+)
