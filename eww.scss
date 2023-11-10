@@ -4,6 +4,7 @@
 
 @import "./modules/eww-settings/metric-indicator/eww.scss"
 @import "./modules/eww-tray/ram/eww.scss"
+@import "./modules/eww-tray/hdd/eww.scss"
 
 .bar {
   background: rgba(00,00,00, 0.5);
@@ -14,6 +15,7 @@
 .sidestuff {
   margin-right: 10px;
   & > * {
+    font-size: 15;
     margin: 0px 0px 0px 15px;
   }
 }

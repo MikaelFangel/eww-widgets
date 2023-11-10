@@ -1,0 +1,12 @@
+(defwidget _hdd []
+  (box :class "hdd-box"
+       :space-evenly false
+    (circular-progress :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+                       :class "hdd-prog"
+                       :start-at 0
+                       :thickness 2.0
+    (button 
+                :class "hdd-icon"
+                ""))
+  )
+)
