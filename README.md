@@ -40,4 +40,14 @@ Add the following window to you main `eww.yuck` file and map shortcuts that upda
 ```
 AND! Don't forget to import the eww.scss in you main eww.scss file.
 
+### Volume Indicator
+
+A Hyprland themed volume indicator
+
+![20231110_11h26m03s_grim](https://github.com/MikaelFangel/eww-widgets/assets/34864484/dc8512f0-41c0-48ba-a21b-b946350dfccc)
+
+
+#### Dependencies
+* wpctl
+
 ## Tray icons
