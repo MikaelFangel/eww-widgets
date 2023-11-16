@@ -1,8 +1,10 @@
 (defpoll curbright :interval "0.1s"
+                   :initial 0.0
                    :run-while show_curbright
   `brightnessctl | grep Current | cut -d" " -f4 | tr -d '()%'`)
 
 (defpoll curvolume :interval "0.1s"
+                   :initial 0.0
                    :run-while show_curvolume
   `wpctl get-volume @DEFAULT_SINK@ | cut -d" " -f2 | tr -d '.'`)
 
@@ -12,7 +14,7 @@
     icon
     (scale :min 0
            :max 100
-           :active ""
+           :active false
            :value value
            :onchange "")
   )
