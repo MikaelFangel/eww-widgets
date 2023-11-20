@@ -1,9 +1,13 @@
 * {
   all: unset;
 }
+.transparent-placeholder {
+  color: rgba(00,00,00,0.0);
+}
 .settings-metric {
   background-color: rgba(00,00,00, 0.5);
   border-radius: 20px;
+  color: #fff;
   font-size: 20px;
   font-weight: bold;
   padding: 10px;

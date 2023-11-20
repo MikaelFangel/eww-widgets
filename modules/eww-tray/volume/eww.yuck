@@ -1,12 +1,15 @@
 (defpoll volume :interval "1s"
+                :initial 0.0
   `wpctl get-volume @DEFAULT_SINK@ | cut -d" " -f 2`)
 
 (defpoll muted :interval "1s"
+               :initial "MUTED"
    `wpctl get-volume @DEFAULT_SINK@ | cut -d" " -f 3 | tr -d "[]"`)
 
 (defwidget _volume [volume muted]
   (box :class "volume-box" :space-evenly false :spacing 8
     (label :text {muted == "MUTED" ? "󰸈" :
+      volume == `` ? "󰸈" :
       volume < 0.3 ? "󰕿" :
       volume < 0.6 ? "󰖀" :
       "󰕾"})))

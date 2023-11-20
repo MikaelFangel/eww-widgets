@@ -59,7 +59,7 @@
     (
         geometry
         :anchor "top center"
-        :x "0"
+        :x "0px"
         :y "5px"
         :width "99.5%"
         :height "3%"
@@ -80,8 +80,8 @@
     :geometry (
       geometry
       :anchor "center"
-      :x "0"
-      :y "0"
+      :x "0px"
+      :y "0px"
       :width "0%"
       :height "0%"
     )
@@ -101,8 +101,8 @@
     :geometry (
       geometry
       :anchor "center"
-      :x "0"
-      :y "0"
+      :x "0px"
+      :y "0px"
       :width "0%"
       :height "0%"
     )

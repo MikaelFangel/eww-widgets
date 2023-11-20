@@ -9,13 +9,16 @@
   `wpctl get-volume @DEFAULT_SINK@ | cut -d" " -f2 | tr -d '.'`)
 
 (defwidget _metric [value icon show_indicator]
+  (box :space-evenly false  
+    :class "transparent-placeholder"
+    "Hack The World"
   (box :visible show_indicator :space-evenly false
     :class "settings-metric"
     icon
     (scale :min 0
            :max 100
            :active false
-           :value value
+           :value {value == `` ? 0.0 : value }
            :onchange "")
-  )
+  ))
 )

@@ -21,7 +21,8 @@
   (box :class "network-box"
        :space-evenly false
        :spacing 8
-    (label :text {strength == "" ? "󰤭" :
+    (label :text {strength == "N/A" ? "󰤭" :
+                  strength == "" ? "󰤭" :
                   strength < 26 ? "󰤟" :
                   strength < 51 ? "󰤢" :
                   strength < 76 ? "󰤥" :
