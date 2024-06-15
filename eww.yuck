@@ -66,7 +66,7 @@
         :height "3%"
     )
   
-    :stacking "fg"
+    :stacking "bg"
     :exclusive "true"
     :focusable "false"
    
