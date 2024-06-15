@@ -16,6 +16,7 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+  (systray)
   (_hdd)
   (_ram)
   (_network :strength net)
